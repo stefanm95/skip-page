@@ -73,4 +73,6 @@ This project provides a modern, accessible, and user-friendly skip selection exp
 
 These improvements provide a modern, accessible, and user-friendly experience for skip selection, with clear visual feedback, easy filtering, and mobile-first design.
 
+Netlify link:
+https://skip-page.netlify.app/
 
