@@ -51,7 +51,7 @@ function SkipSelect() {
           </button>
         ))}
       </div>
-      <div className="px-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="px-2 sm:px-6 lg:px-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 overflow-visible">
         {filteredSkips.map((skip) => (
           <SkipCard
             key={skip.id}
