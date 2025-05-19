@@ -3,7 +3,7 @@ import ProgressHeader from "../components/Header";
 
 function SkipPage() {
   return (
-    <main className="w-full max-w-7xl mx-auto py-6">
+    <main className="w-full overflow-x-hidden max-w-7xl mx-auto py-6">
       <ProgressHeader activeStep="Select Skip" />
       <h1 className="text-3xl font-bold mb-6 text-center">
         Choose Your Skip Size

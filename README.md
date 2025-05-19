@@ -51,13 +51,20 @@ This project provides a modern, accessible, and user-friendly skip selection exp
 - Switched to a responsive grid layout for cards on desktop, with single-column on mobile.
 - Added card grouping and filtering by skip size (Small, Medium, Large).
 - Ensured all touch targets (buttons, cards) are large and well-spaced for mobile usability.
+- Made skip cards thinner and more compact on small screens for better mobile experience.
+- Prevented card scaling and highlight overflow on mobile to keep selections within the viewport.
+- Added extra bottom spacing to prevent the sticky footer from overlapping the last card.
 
-### 5. Personalization
+### 5. Header Responsiveness
+- The progress header now hides or collapses on small screens to prevent horizontal overflow and improve usability.
+- On mobile, only the current step or a minimal header is shown, while the full progress header appears on larger screens.
+
+### 6. Personalization
 - Displayed a “Recommended” badge for popular skips (based on API data).
 - Allowed users to favorite skips with a heart icon, visually indicating favorites.
 - (Ready for future) Compare feature support.
 
-### 6. Favorite Icon Placement & Behavior
+### 7. Favorite Icon Placement & Behavior
 - Placed the favorite (heart) icon over the image, to the left of the skip size badge, for clarity and aesthetics.
 - Made the icon smaller and adjusted its position for a balanced look.
 - Clicking the card or the select button toggles selection (select/deselect).

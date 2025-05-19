@@ -22,8 +22,8 @@ function SkipSelect() {
 
   // Example: categorize by size (adjust logic as needed)
   const getSizeCategory = (size) => {
-    if (size < 6) return "Small";
-    if (size >= 6 && size <= 10) return "Medium";
+    if (size <= 6) return "Small";
+    if (size > 6 && size <= 10) return "Medium";
     return "Large";
   };
 
@@ -51,7 +51,7 @@ function SkipSelect() {
           </button>
         ))}
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="px-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredSkips.map((skip) => (
           <SkipCard
             key={skip.id}
@@ -67,7 +67,7 @@ function SkipSelect() {
           />
         ))}
       </div>
-      <div className="h-16" />
+      <div className="h-32 sm:h-16" />
       <StickyFooter
         skip={skips.find((s) => s.id === selectedId)}
         onBack={() => { /* your back logic */ }}

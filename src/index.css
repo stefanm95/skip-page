@@ -3,4 +3,5 @@
 /* In your global CSS (e.g., index.css) */
 body {
   font-family: 'Inter', 'Roboto', 'Segoe UI', 'Helvetica Neue', Arial, 'sans-serif';
+  overflow-x: hidden;
 }

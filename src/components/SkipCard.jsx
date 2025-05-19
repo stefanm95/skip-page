@@ -21,12 +21,14 @@ function SkipCard({ skip, selected, onSelect, isFavorite, onToggleFavorite }) {
 
   return (
     <div
-      className={`bg-gradient-to-br from-[#232323] to-[#1C1C1C] bg-[url('/pattern.svg')] bg-repeat rounded-2xl shadow-2xl p-6 transition-transform duration-200 hover:-translate-y-1 hover:shadow-3xl border-2 relative w-full flex flex-col items-center cursor-pointer
-      ${
-        selected
-          ? "border-4 border-transparent bg-clip-padding bg-gradient-to-r from-[#0037C1] to-[#00C1D4] scale-105 text-white z-10"
-          : "border-[#2A2A2A] hover:border-[#00C1D4] text-white hover:shadow-xl"
-      } focus:outline-none focus:ring-2 focus:ring-[#00C1D4]`}
+      className={`bg-gradient-to-br from-[#232323] to-[#1C1C1C] bg-[url('/pattern.svg')] bg-repeat rounded-2xl shadow-2xl 
+        p-2 xs:p-3 sm:p-6
+        transition-transform duration-200 hover:-translate-y-1 hover:shadow-3xl border-2 relative w-full flex flex-col items-center cursor-pointer
+        ${
+          selected
+            ? "border-4 border-transparent bg-clip-padding bg-gradient-to-r from-[#0037C1] to-[#00C1D4] sm:scale-105 text-white z-10"
+            : "border-[#2A2A2A] hover:border-[#00C1D4] text-white hover:shadow-xl"
+        } focus:outline-none focus:ring-2 focus:ring-[#00C1D4]`}
       style={{ willChange: "transform" }}
       onClick={onSelect}
       tabIndex={0}
@@ -43,7 +45,7 @@ function SkipCard({ skip, selected, onSelect, isFavorite, onToggleFavorite }) {
       <div className="relative w-full mb-0">
         {/* Skeleton Loader */}
         {!imgLoaded && (
-          <div className="absolute inset-0 w-full h-40 md:h-48 bg-gradient-to-br from-[#232323] to-[#1C1C1C] rounded-xl animate-pulse z-10" />
+          <div className="absolute inset-0 w-full h-28 xs:h-32 sm:h-40 md:h-48 bg-gradient-to-br from-[#232323] to-[#1C1C1C] rounded-xl animate-pulse z-10" />
         )}
         <img
           src={imageUrl}
@@ -54,7 +56,7 @@ function SkipCard({ skip, selected, onSelect, isFavorite, onToggleFavorite }) {
               ? "5 Yard Skip"
               : "20 Yard Skip"
           }
-          className={`w-full h-40 md:h-48 object-cover rounded-xl border border-[#2A2A2A] shadow-lg transition-opacity duration-500 ${
+          className={`w-full h-28 xs:h-32 sm:h-40 md:h-48 object-cover rounded-xl border border-[#2A2A2A] shadow-lg transition-opacity duration-500 ${
             imgLoaded ? "opacity-100" : "opacity-0"
           }`}
           loading="lazy"
@@ -75,7 +77,9 @@ function SkipCard({ skip, selected, onSelect, isFavorite, onToggleFavorite }) {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className={`w-4 h-4 ${isFavorite ? "text-red-500 fill-red-500" : "text-white"}`}
+            className={`w-4 h-4 ${
+              isFavorite ? "text-red-500 fill-red-500" : "text-white"
+            }`}
             fill={isFavorite ? "currentColor" : "none"}
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -158,21 +162,26 @@ function SkipCard({ skip, selected, onSelect, isFavorite, onToggleFavorite }) {
           </div>
         )}
       </div>
-      <div className="text-2xl font-extrabold mb-2 text-center tracking-tight">{skip.name}</div>
-      <div className="mb-3 text-center text-gray-200">{skip.description}</div>
-      <div className="flex flex-col items-start gap-2 mb-8 w-full">
-        <span className="text-2xl font-extrabold text-white">
+      <div className="text-lg xs:text-xl sm:text-2xl font-extrabold mb-2 text-center tracking-tight">
+        {skip.name}
+      </div>
+      <div className="mb-2 xs:mb-3 text-center text-gray-200 text-xs xs:text-sm sm:text-base">
+        {skip.description}
+      </div>
+      <div className="flex flex-col items-start gap-1 xs:gap-2 mb-6 xs:mb-8 w-full">
+        <span className="text-base xs:text-lg sm:text-2xl font-extrabold text-white">
           {skip.size} Yard Skip
         </span>
-        <span className="text-sm text-gray-200 font-semibold">
+        <span className="text-xs xs:text-sm text-gray-200 font-semibold">
           {skip.hire_period_days} days hire period
         </span>
       </div>
-      <div className="text-[#00C1D4] font-bold text-lg mb-4 w-full">
-        £{priceWithVAT} <span className="text-xs text-gray-200">(inc. VAT)</span>
+      <div className="text-[#00C1D4] font-bold text-base xs:text-lg mb-3 xs:mb-4 w-full">
+        £{priceWithVAT}{" "}
+        <span className="text-xs text-gray-200">(inc. VAT)</span>
       </div>
       <button
-        className={`px-4 py-2 rounded transition font-semibold w-full flex items-center justify-center gap-2 cursor-pointer
+        className={`px-3 xs:px-4 py-1.5 xs:py-2 rounded transition font-semibold w-full flex items-center justify-center gap-2 cursor-pointer
           ${
             selected
               ? "bg-gradient-to-r from-[#0037C1] to-[#00C1D4] hover:from-[#002da1] hover:to-[#00b3c1] text-white"

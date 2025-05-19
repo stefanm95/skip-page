@@ -69,41 +69,51 @@ function ProgressHeader({ activeStep = "Select Skip" }) {
   const activeIdx = steps.findIndex((s) => s.label === activeStep);
 
   return (
-    <nav className="w-full max-w-5xl mx-auto mb-8 px-2">
-      <div className="flex items-center">
-        {steps.map((step, idx) => {
-          // Determine step state
-          const isActive = idx === activeIdx;
-          const isCompleted = idx < activeIdx;
-          const isDisabled = idx > activeIdx;
+    <>
+      {/* Mobile: show only active step */}
+      <nav className="flex sm:hidden w-full max-w-5xl mx-auto mb-4 px-2">
+        <div className="flex items-center gap-2">
+          {steps[activeIdx].icon}
+          <span className="ml-2 text-white font-semibold">{steps[activeIdx].label}</span>
+        </div>
+      </nav>
+      {/* Desktop: show full progress header */}
+      <nav className="hidden sm:block w-full max-w-5xl mx-auto mb-8 px-2">
+        <div className="flex items-center">
+          {steps.map((step, idx) => {
+            // Determine step state
+            const isActive = idx === activeIdx;
+            const isCompleted = idx < activeIdx;
+            const isDisabled = idx > activeIdx;
 
-          // Line color logic
-          let lineColor = "bg-[#2A2A2A]";
-          if (isCompleted) lineColor = "bg-[#0037C1]";
-          if (isActive) lineColor = "bg-[#0037C1]";
+            // Line color logic
+            let lineColor = "bg-[#2A2A2A]";
+            if (isCompleted) lineColor = "bg-[#0037C1]";
+            if (isActive) lineColor = "bg-[#0037C1]";
 
-          return (
-            <React.Fragment key={step.label}>
-              <button
-                disabled={isDisabled}
-                className={`flex items-center whitespace-nowrap transition-colors px-0 py-0
-                  ${isActive || isCompleted ? "text-[#0037C1] hover:text-[#0037C1]" : "text-white/60"}
-                  ${isDisabled ? "cursor-not-allowed opacity-50" : "cursor-pointer"}
-                `}
-              >
-                {step.icon}
-                <span className="ml-2 text-white">{step.label}</span>
-              </button>
-              {idx < steps.length - 1 && (
-                <div
-                  className={`w-16 h-px mx-2 ${lineColor} transition-colors`}
-                />
-              )}
-            </React.Fragment>
-          );
-        })}
-      </div>
-    </nav>
+            return (
+              <React.Fragment key={step.label}>
+                <button
+                  disabled={isDisabled}
+                  className={`flex items-center whitespace-nowrap transition-colors px-0 py-0
+                    ${isActive || isCompleted ? "text-[#0037C1] hover:text-[#0037C1]" : "text-white/60"}
+                    ${isDisabled ? "cursor-not-allowed opacity-50" : "cursor-pointer"}
+                  `}
+                >
+                  {step.icon}
+                  <span className="ml-2 text-white">{step.label}</span>
+                </button>
+                {idx < steps.length - 1 && (
+                  <div
+                    className={`w-16 h-px mx-2 ${lineColor} transition-colors`}
+                  />
+                )}
+              </React.Fragment>
+            );
+          })}
+        </div>
+      </nav>
+    </>
   );
 }
 
